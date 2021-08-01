@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layoutDirection="rtl"
+    android:paddingTop="48dp"
+    android:background="@color/white">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/main_layout"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:background="@drawable/edit_profile_background"
+        android:layout_margin="2dp">
+
+
+        <LinearLayout
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/circle_profile_pic_background">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/main_stories_item_media_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/person_placeholder"
+                app:civ_border_width="4dp"
+                app:civ_border_color="@android:color/white" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/navigation_drawer_items_user_real_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:layout_marginBottom="4dp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            tools:text="ريان شريف"/>
+
+
+
+
+        <TextView
+            android:id="@+id/navigation_drawer_items_edit_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:background="@drawable/edit_profile_button"
+            android:text="@string/navigation_edit_profile"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardView_for_navigation_item"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true" >
+
+
+            <LinearLayout
+                android:id="@+id/navigation_drawer_items_home_item"
+                style="@style/linear_for_navigation_item">
+
+
+
+                <TextView
+                    style="@style/text_view_for_navigation_item"
+                    android:text="@string/navigation_home"/>
+
+                <ImageView
+                    style="@style/image_view_for_navigation_item"/>
+
+
+                <View style="@style/circle_icon_for_navigation_item"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardView_for_navigation_item"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:id="@+id/navigation_drawer_items_tasks_item"
+                style="@style/linear_for_navigation_item">
+
+
+
+                <TextView
+                    style="@style/text_view_for_navigation_item"
+                    android:text="@string/navigation_tasks"/>
+
+                <ImageView
+                    style="@style/image_view_for_navigation_item"/>
+
+
+                <View style="@style/circle_icon_for_navigation_item"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardView_for_navigation_item"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:id="@+id/navigation_drawer_items_done_item"
+                style="@style/linear_for_navigation_item">
+
+
+
+                <TextView
+                    style="@style/text_view_for_navigation_item"
+                    android:text="@string/navigation_done"/>
+
+                <ImageView
+                    style="@style/image_view_for_navigation_item"/>
+
+
+                <View style="@style/circle_icon_for_navigation_item"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardView_for_navigation_item"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:id="@+id/navigation_drawer_items_table_item"
+                style="@style/linear_for_navigation_item">
+
+
+
+                <TextView
+                    style="@style/text_view_for_navigation_item"
+                    android:text="@string/navigation_tables"/>
+
+                <ImageView
+                    style="@style/image_view_for_navigation_item"/>
+
+
+                <View style="@style/circle_icon_for_navigation_item"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/cardView_for_navigation_item"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true">
+
+
+            <LinearLayout
+                android:id="@+id/navigation_drawer_items_settings_item"
+                style="@style/linear_for_navigation_item">
+
+
+
+                <TextView
+                    style="@style/text_view_for_navigation_item"
+                    android:text="@string/navigation_settings"/>
+
+                <ImageView
+                    style="@style/image_view_for_navigation_item"/>
+
+
+                <View style="@style/circle_icon_for_navigation_item"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="24dp"
+                android:layout_marginEnd="4dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+
+                <LinearLayout
+                    android:id="@+id/navigation_drawer_items_share_item"
+                    style="@style/linear_for_navigation_item"
+                    android:gravity="center_vertical|end"
+                    android:layout_height="48dp">
+
+
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:autoSizeMinTextSize="10sp"
+                        android:autoSizeMaxTextSize="16sp"
+                        android:autoSizeStepGranularity="1sp"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"
+                        android:text="@string/navigation_share"/>
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="24dp"
+                android:layout_marginStart="4dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardPreventCornerOverlap="false"
+                app:cardUseCompatPadding="true">
+
+
+                <LinearLayout
+                    android:id="@+id/navigation_drawer_items_log_out"
+                    style="@style/linear_for_navigation_item"
+                    android:gravity="center_vertical|end"
+                    android:layout_height="48dp">
+
+
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:autoSizeMinTextSize="10sp"
+                        android:autoSizeMaxTextSize="16sp"
+                        android:autoSizeStepGranularity="1sp"
+                        android:textColor="@android:color/black"
+
+                        android:text="@string/navigation_logout"/>
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>

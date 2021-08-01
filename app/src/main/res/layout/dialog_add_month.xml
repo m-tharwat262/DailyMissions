@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="24dp"
+    android:layout_gravity="center"
+    android:layoutDirection="rtl"
+    android:gravity="center"
+    android:background="@drawable/dialog_body_background">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:background="@drawable/dialog_header_background"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        style="@style/bottom_layout_for_image_layout"
+        android:background="@drawable/circle_navigation_tables">
+
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/random_icon_3"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/add_new_month"/>
+
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:orientation="vertical" >
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/cardView_for_navigation_item"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:id="@+id/dialog_add_month_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:selectAllOnFocus="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:hint="@string/hint_month_name"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        style="@style/cardView_for_navigation_item"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:id="@+id/dialog_add_month_days"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:selectAllOnFocus="true"
+            android:inputType="number"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:hint="@string/hint_month_days"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/cardView_for_navigation_item"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:id="@+id/dialog_add_month_number"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:gravity="center"
+            android:background="@android:color/transparent"
+            android:textStyle="bold"
+            android:hint="@string/hint_month_number"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/cardView_for_navigation_item"
+        app:cardCornerRadius="25dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:id="@+id/dialog_add_month_description"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:selectAllOnFocus="true"
+            android:gravity="start"
+            android:background="@drawable/dialog_edit_text_background"
+            android:textStyle="bold"
+            android:hint="@string/hint_month_description"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+    <TextView
+        android:id="@+id/dialog_add_month_add_month_button"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:background="@drawable/final_primary_button"
+        android:text="@string/create_month_button"/>
+
+
+
+
+
+
+</LinearLayout>
+
+
+
+
+</LinearLayout>
+

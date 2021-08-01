@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">TODO</string>
+
+
+    <!-- main activity -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="main_layout">القائمة</string>
+    <string name="navigation_home">الرئيسية</string>
+    <string name="navigation_tasks">المهام</string>
+    <string name="navigation_done">الإنجاز</string>
+    <string name="navigation_tables">الجدول</string>
+    <string name="navigation_settings">الاعدادات</string>
+    <string name="navigation_logout">تسجيل الخروج</string>
+    <string name="navigation_share">مشاركة التطبيق</string>
+    <string name="navigation_edit_profile">تعديل الملف الشخصي</string>
+
+
+    <!-- main fragments -->
+    <string name="main_title">جميع الأوقات</string>
+    <string name="missions_completed">المهام المكتملة</string>
+    <string name="missions_percentage">الإنجاز</string>
+    <string name="missions_not_completed">المهام الباقية</string>
+
+
+    <!-- months fragment -->
+    <string name="year_details">نسبة إنجاز هذه السنه</string>
+
+
+
+    <!-- days fragment -->
+    <string name="month_details">نسبة إنجاز هذه الشهر</string>
+    <string name="month_title">أيام الشهر %1$d (%2$s)</string>
+
+
+
+    ////////////// for create year dialog ////////
+
+                <!-- fot the add year dialog -->
+    <string name="add_new_year">إنشاء سنة جديدة</string>
+    <string name="hint_year_name">اسم السنة الجديدة</string>
+    <string name="hint_year_number">عام السنة الجديدة</string>
+    <string name="hint_year_description">وصف قصير لهذه السنة ....</string>
+    <string name="create_year_button">إنشاء السنة</string>
+    <string name="placeholder_for_year_name">لم يحدد العنوان بعد لهذه السنة</string>
+
+
+    <string name="insert_year_inside_database_successful">تم حفظ السنة بنجاح</string>
+    <string name="insert_year_inside_database_failed">حدث خطأ اثناء حفظ السنة</string>
+
+                <!-- for the add month dialog -->
+    <string name="add_new_month">إنشاء شهر جديد</string>
+    <string name="hint_month_name">اسم الشهر الجديد</string>
+    <string name="hint_month_days">عدد أيام الشهر الجديد (اختياري)</string>
+    <string name="hint_month_number">رقم الشهر الجديد</string>
+    <string name="hint_month_description">وصف قصير لهذا الشهر ....</string>
+    <string name="create_month_button">إنشاء الشهر</string>
+    <string name="placeholder_for_month_name">لم يحدد العنوان بعد لهذا الشهر</string>
+
+
+    <string name="insert_month_inside_database_successful">تم حفظ الشهر بنجاح</string>
+    <string name="insert_month_inside_database_failed">حدث خطأ اثناء حفظ الشهر</string>
+
+
+    <!-- for the add day dialog -->
+    <string name="add_new_day">إنشاء يوم جديد</string>
+    <string name="hint_day_name">اسم اليوم الجديد</string>
+    <string name="hint_day_number">رقم اليوم الجديد</string>
+    <string name="create_day_button">إنشاء اليوم</string>
+    <string name="placeholder_for_day_name">لم يحدد العنوان بعد لهذا اليوم</string>
+
+
+    <string name="insert_day_inside_database_successful">تم حفظ اليوم بنجاح</string>
+    <string name="insert_day_inside_database_failed">حدث خطأ اثناء حفظ اليوم</string>
+
+
+    /////////////////// year list view and items //////////
+    <string name="number_of_months">عدد الشهور %1$d</string>
+    <string name="number_of_days">عدد المهمات %1$d</string>
+
+
+
+
+
+    //////////////////////// for log in and create account /////////////////
+
+    <string name="log_in_statement">تسجيل الدخول للحساب</string>
+    <string name="ask_have_not_account_statement">ليس لديك حساب ؟</string>
+    <string name="ask_forget_password_statement">هل نسيت كلمة السر ؟</string>
+    <string name="ask_have_account_statement">هل لديك حساب ؟</string>
+    <string name="create_account_statement">إنشاء حساب جديد</string>
+    <string name="or_statement">أو</string>
+    <string name="thank_you_statement">شكرا لك</string>
+    <string name="change_password_statement">تم إرسال رابط تعيين كلمة المرور إلي البريد الإلكتروني الخاص بك</string>
+
+    <string name="log_in_button">تسجيل الدخول</string>
+    <string name="create_account_button">إنشاء حساب</string>
+    <string name="change_password_button">إعادة تعيين كلمة المرور</string>
+    <string name="ok_button">حسنا</string>
+
+    <string name="name_field">الاسم</string>
+    <string name="e_mail_field">البريد الالكتروني</string>
+    <string name="user_name_field">اسم المستخدم</string>
+    <string name="password_field">كلمة المرور</string>
+    <string name="confirm_password_field">تأكيد كلمة المرور</string>
+    <string name="phone_number_field">رقم الهاتف</string>
+
+
+    ///////////////////////////  notification //////////////////
+    <string name="notification_fragment_title">الإشعارات</string>
+    <string name="notification_tasks">إشعارات المهام</string>
+    <string name="notification_more_items">المزيد من الإشعارات</string>
+
+
+</resources>

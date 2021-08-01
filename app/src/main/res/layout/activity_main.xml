@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:elevation="0dp"
+            android:background="@android:color/white">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+            <TextView
+                android:id="@+id/activity_main_toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_toStartOf="@id/activity_main_notification_icon"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/activity_main_notification_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:paddingEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/ripple_notification_background"
+                android:paddingStart="12dp"
+                android:src="@drawable/notification_icon"/>
+
+        </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <FrameLayout
+                android:id="@+id/main_activity_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+                <LinearLayout
+                    android:id="@+id/main_activity_bottom_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@drawable/bottom_navigation">
+
+
+                    <LinearLayout
+                        style="@style/bottom_layout_for_main_linear">
+
+
+                        <LinearLayout
+                            android:id="@+id/main_activity_navigation_bottom_navigation_tables"
+                            style="@style/bottom_layout_for_image_layout"
+                            android:background="@drawable/circle_navigation_tables">
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/plus_png_icon"/>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/bottom_layout_for_text_view"
+                            android:text="@string/navigation_tables"/>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/bottom_layout_for_main_linear">
+
+
+                        <LinearLayout
+                            android:id="@+id/main_activity_navigation_bottom_navigation_tasks"
+                            style="@style/bottom_layout_for_image_layout"
+                            android:background="@drawable/circle_navigation_tasks">
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/plus_png_icon"/>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/bottom_layout_for_text_view"
+                            android:text="@string/navigation_tasks"/>
+
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"/>
+
+
+
+
+                    <LinearLayout
+                        style="@style/bottom_layout_for_main_linear">
+
+
+                        <LinearLayout
+                            android:id="@+id/main_activity_navigation_bottom_navigation_done"
+                            style="@style/bottom_layout_for_image_layout"
+                            android:background="@drawable/circle_navigation_done">
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/plus_png_icon"/>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/bottom_layout_for_text_view"
+                            android:text="@string/navigation_done"/>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/bottom_layout_for_main_linear">
+
+
+                        <LinearLayout
+                            android:id="@+id/main_activity_navigation_bottom_navigation_settings"
+                            style="@style/bottom_layout_for_image_layout"
+                            android:background="@drawable/circle_navigation_settings">
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/plus_png_icon"/>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/bottom_layout_for_text_view"
+                            android:text="@string/navigation_settings"/>
+
+
+
+                    </LinearLayout>
+
+
+
+
+                 </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="8dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/main_activity_navigation_bottom_navigation_home"
+                    style="@style/bottom_layout_for_image_layout"
+                    android:layout_height="80dp"
+                    android:layout_width="80dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/circle_navigation_home">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/navigaion_home_icon"/>
+
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/bottom_layout_for_text_view"
+                    android:text="@string/navigation_home"
+                    android:layout_marginTop="4dp"/>
+
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/activity_main_navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        tools:visibility="gone">
+
+
+        <include
+            android:id="@+id/test_include"
+            layout="@layout/navigation_drawer_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal" />
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //////////////////////// for app themes   ///////////////
+    <style name="AppBottomSheetDialogTheme"
+        parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModeStyle</item>
+    </style>
+
+
+    <style name="AppModeStyle"
+        parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet</item>
+    </style>
+
+
+///////////////////   for  navigation items (activity_main_xml) //////////////////
+
+    <style name="cardView_for_navigation_item">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="linear_for_navigation_item">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">@drawable/ripple_navigation_item</item>
+    </style>
+
+    <style name="text_view_for_navigation_item">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="image_view_for_navigation_item">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:src">@drawable/earth_icon</item>
+    </style>
+
+    <style name="circle_icon_for_navigation_item">
+        <item name="android:layout_height">8dp</item>
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:background">@drawable/small_circle_1</item>
+    </style>
+
+
+
+    ////////////////////// for main fragments (fragments_main.xml)  ////////////////
+
+        <style name="fragment_main_title_for_linear">
+            <item name="android:layout_width">0dp</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_weight">1</item>
+            <item name="android:orientation">vertical</item>
+        </style>
+
+
+    <style name="fragment_main_title_for_text_view_top">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+
+    </style>
+
+
+    <style name="fragment_main_title_for_text_view_bottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+
+
+
+
+    //////////////////  for the bottom layout in the main activity  //////////////
+
+    <style name="bottom_layout_for_main_linear">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="bottom_layout_for_image_layout">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="bottom_layout_for_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+//////////////////////////// lines /////////////////////////
+    <!-- Divider horizontal line  -->
+    <style name="Divider_horizontal">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+
+    <!-- Divider vertical line  -->
+    <style name="Divider_vertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+//////////////////// login views //////////////////
+    <style name="login_editText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center|end</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:background">@drawable/dialog_edit_text_background</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="login_icon_image_view">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+    </style>
+
+
+
+
+
+    ////////////////////////// settings items  /////////////////////
+
+    <style name="settings_item_layout_contain_texts">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="settings_item_text_view_top" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="settings_item_text_view_bottom" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/hint_text_color</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <style name="settings_item_layout_contain_image_icon">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/settings_big_circle_background</item>
+    </style>
+
+    <style name="settings_item_image_icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/random_icon_1</item>
+    </style>
+
+    <style name="settings_item_small_circle">
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">8dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@drawable/small_circle_1</item>
+    </style>
+
+</resources>
