@@ -279,6 +279,102 @@ public class DaysFragment extends Fragment implements LoaderManager.LoaderCallba
         });
 
 
+
+        mDaysListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                Uri dayUri = new ContentUris().withAppendedId(DaysEntry.CONTENT_URI, id);
+
+
+                Cursor cursor = mContext.getContentResolver().query(dayUri, null, null, null, null);
+                cursor.moveToNext();
+                int nameColumnIndex = cursor.getColumnIndexOrThrow(DaysEntry.COLUMN_DAY_NAME);
+                int numberColumnIndex = cursor.getColumnIndexOrThrow(DaysEntry.COLUMN_DAY_NUMBER);
+
+                String dayName = cursor.getString(nameColumnIndex);
+                int dayNumber = cursor.getInt(numberColumnIndex);
+
+                cursor.close();
+
+                Dialog dialog = new Dialog(mContext);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_add_day);
+                dialog.getWindow().setLayout(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                TextView titleTextView = dialog.findViewById(R.id.dialog_add_day_title);
+                TextView dayNameTextView = dialog.findViewById(R.id.dialog_add_day_name);
+                TextView dayNumberTextView = dialog.findViewById(R.id.dialog_add_day_number);
+                TextView addDayButton = dialog.findViewById(R.id.dialog_add_day_add_day_button);
+
+
+                titleTextView.setText(R.string.edit_day);
+                dayNameTextView.setText(dayName);
+                dayNumberTextView.setText(String.valueOf(dayNumber));
+                addDayButton.setText(R.string.edit_button);
+
+                addDayButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String dayName = dayNameTextView.getText().toString().trim();
+                        String dayNumber = dayNumberTextView.getText().toString().trim();
+
+
+                        if (dayNumber.isEmpty()) {
+                            Toast.makeText(mContext, "ادخل رقم هذه اليوم اولا", Toast.LENGTH_SHORT).show();
+                        } else {
+                            updateInDayDatabase(dayName, dayNumber, dayUri);
+                            dialog.dismiss();
+                        }
+
+
+                    }
+                });
+
+                dialog.show();
+
+                return true;
+            }
+        });
+
+
+    }
+
+
+    private void updateInDayDatabase(String dayName, String dayNumber, Uri dayUri) {
+
+        if (dayName.isEmpty()) {
+            dayName = getString(R.string.placeholder_for_day_name);
+        }
+
+        // initialize and setup the ContentValues to contain the data that will be insert inside the database.
+        ContentValues values = new ContentValues();
+        values.put(DaysEntry.COLUMN_DAY_NAME, dayName);
+        values.put(DaysEntry.COLUMN_DAY_NUMBER, dayNumber);
+
+        updateDay(values, dayUri);
+
+
+    }
+
+
+    private void updateDay(ContentValues values, Uri dayUri) {
+
+        // update the semester and get number of the rows that updated.
+        int rows = mContext.getContentResolver().update(dayUri, values, null, null);
+
+        // check if the semester updated successfully or failed.
+        if (rows == 0) {
+            // show a toast message to the user says that "Error with updating semester".
+            Toast.makeText(mContext, R.string.update_day_inside_database_failed, Toast.LENGTH_SHORT).show();
+        } else {
+            // show a toast message to the user says that "Semester updated".
+            Toast.makeText(mContext, R.string.update_day_inside_database_successful, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 

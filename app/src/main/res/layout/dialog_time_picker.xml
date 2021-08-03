@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_body_background"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+
+
+    <TimePicker
+        android:id="@+id/dialog_time_picker_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:soundEffectsEnabled="true"
+        android:timePickerMode="spinner"/>
+
+
+
+    <TextView
+        android:id="@+id/dialog_time_picker_button"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:background="@drawable/final_primary_button"
+        android:text="@string/ok_button"/>
+
+</LinearLayout>

@@ -23,10 +23,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class YearCursorAdapter extends CursorAdapter {
+public class YearsCursorAdapter extends CursorAdapter {
 
 
-    public static final String LOG_TAG = YearCursorAdapter.class.getSimpleName(); // class name.
+    public static final String LOG_TAG = YearsCursorAdapter.class.getSimpleName(); // class name.
 
     private Context mContext;
 
@@ -37,7 +37,7 @@ public class YearCursorAdapter extends CursorAdapter {
     private int mMode = DISPLAY_ITEMS; // the mode that the adapter uses from above.
 
 
-    public YearCursorAdapter(Context context, Cursor c) {
+    public YearsCursorAdapter(Context context, Cursor c) {
         super(context, c, 0);
 
         mContext = context;
@@ -69,7 +69,7 @@ public class YearCursorAdapter extends CursorAdapter {
         TextView dateDetailsTextView = view.findViewById(R.id.item_fragment_months_number);
         ImageView circleIconImageView = view.findViewById(R.id.item_fragment_circle_icon);
         LinearLayout BigCircleBackgroundLayout = view.findViewById(R.id.item_fragment_circle_layout);
-        TextView smallCircleView = view.findViewById(R.id.item_fragment_test_small_circle);
+        TextView smallCircleView = view.findViewById(R.id.item_fragment_small_circle);
 
 
         // get the column position inside the table in semester database.

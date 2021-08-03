@@ -94,9 +94,10 @@
 
 
                             <ImageView
+                                android:id="@+id/activity_main_tables_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/plus_png_icon"/>
+                                android:src="@drawable/tables_icon"/>
 
 
                         </LinearLayout>
@@ -120,9 +121,10 @@
 
 
                             <ImageView
+                                android:id="@+id/activity_main_tasks_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/plus_png_icon"/>
+                                android:src="@drawable/tasks_icon"/>
 
 
                         </LinearLayout>
@@ -155,9 +157,10 @@
 
 
                             <ImageView
+                                android:id="@+id/activity_main_done_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/plus_png_icon"/>
+                                android:src="@drawable/done_icon"/>
 
 
                         </LinearLayout>
@@ -177,13 +180,14 @@
                         <LinearLayout
                             android:id="@+id/main_activity_navigation_bottom_navigation_settings"
                             style="@style/bottom_layout_for_image_layout"
-                            android:background="@drawable/circle_navigation_settings">
+                            tools:background="@drawable/circle_navigation_settings">
 
 
                             <ImageView
+                                android:id="@+id/activity_main_setting_image"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/plus_png_icon"/>
+                                android:src="@drawable/settings_icon"/>
 
 
                         </LinearLayout>
@@ -222,9 +226,11 @@
 
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/navigaion_home_icon"/>
+                        android:id="@+id/activity_main_home_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:tint="@color/white"
+                        android:src="@drawable/home_icon"/>
 
 
                 </LinearLayout>

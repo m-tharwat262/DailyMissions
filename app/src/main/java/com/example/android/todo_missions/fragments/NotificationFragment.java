@@ -17,16 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.example.android.todo_missions.R;
-import com.example.android.todo_missions.RandomIcons;
 import com.example.android.todo_missions.activities.MainActivity;
-import com.example.android.todo_missions.adapters.TodoAdapter;
-import com.example.android.todo_missions.adapters.YearCursorAdapter;
-import com.example.android.todo_missions.models.TodoObject;
-
-import java.util.ArrayList;
+import com.example.android.todo_missions.adapters.YearsCursorAdapter;
 
 import com.example.android.todo_missions.data.TodoThingsContract.YearEntry;
 
@@ -41,7 +35,7 @@ public class NotificationFragment extends Fragment implements LoaderManager.Load
 
     private LinearLayout mLinearListView;
 
-    private YearCursorAdapter mYearCursorAdapter; // adapter for the semester items.
+    private YearsCursorAdapter mYearsCursorAdapter; // adapter for the semester items.
 
     private static final int YEAR_LOADER = 0; // number for the semester loader.
 
@@ -69,7 +63,7 @@ public class NotificationFragment extends Fragment implements LoaderManager.Load
         controlBackPressedButton();
 
 //        mLinearListView = mMainView.findViewById(R.id.fragment_notification_list_view);
-//        mYearCursorAdapter = new YearCursorAdapter(mContext, null);
+//        mYearsCursorAdapter = new YearsCursorAdapter(mContext, null);
 //
 //        setupYearListView();
 //
@@ -166,7 +160,7 @@ public class NotificationFragment extends Fragment implements LoaderManager.Load
             // for semester loader.
             case YEAR_LOADER:
 
-                mYearCursorAdapter.swapCursor(cursor);
+                mYearsCursorAdapter.swapCursor(cursor);
                 break;
 
 
@@ -201,7 +195,7 @@ public class NotificationFragment extends Fragment implements LoaderManager.Load
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
-        mYearCursorAdapter.swapCursor(null);
+        mYearsCursorAdapter.swapCursor(null);
 
 //        mCumulativeCursorAdapter.swapCursor(null);
 

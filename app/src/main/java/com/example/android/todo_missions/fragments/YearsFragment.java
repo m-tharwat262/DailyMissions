@@ -3,6 +3,7 @@ package com.example.android.todo_missions.fragments;
 
 
 import android.app.Dialog;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -30,7 +31,7 @@ import android.widget.Toast;
 import com.example.android.todo_missions.R;
 import com.example.android.todo_missions.RandomIcons;
 import com.example.android.todo_missions.adapters.TodoAdapter;
-import com.example.android.todo_missions.adapters.YearCursorAdapter;
+import com.example.android.todo_missions.adapters.YearsCursorAdapter;
 import com.example.android.todo_missions.models.TodoObject;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
 
     private ListView mYearListView;
 
-    private YearCursorAdapter mYearCursorAdapter; // adapter for the semester items.
+    private YearsCursorAdapter mYearsCursorAdapter; // adapter for the semester items.
 
     private static final int YEAR_LOADER = 0; // number for the semester loader.
 
@@ -73,7 +74,7 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
         mMainView = inflater.inflate(R.layout.fragment_year, container, false);
 
         mYearListView = mMainView.findViewById(R.id.fragment_main_list_view);
-        mYearCursorAdapter = new YearCursorAdapter(mContext, null);
+        mYearsCursorAdapter = new YearsCursorAdapter(mContext, null);
 
         setupYearListView();
 
@@ -168,12 +169,12 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
 
 
 
-        insertSemester(values);
+        insertYear(values);
 
 
     }
 
-    private void insertSemester(ContentValues values) {
+    private void insertYear(ContentValues values) {
 
         // insert the new semester to the database and get the uri for that semester.
         Uri uri = mContext.getContentResolver().insert(YearEntry.CONTENT_URI, values);
@@ -195,7 +196,7 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
     private void setupYearListView() {
 
         // put the adapter relate to display semester items to the semester ListView.
-        mYearListView.setAdapter(mYearCursorAdapter);
+        mYearListView.setAdapter(mYearsCursorAdapter);
 
 
         // TODO: set empty view
@@ -229,6 +230,116 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
         });
 
 
+
+        mYearListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                Uri yearUri = new ContentUris().withAppendedId(YearEntry.CONTENT_URI, id);
+
+
+                Cursor cursor = mContext.getContentResolver().query(yearUri, null, null, null, null);
+                cursor.moveToNext();
+                int yearNameColumnIndex = cursor.getColumnIndexOrThrow(YearEntry.COLUMN_YEAR_NAME);
+                int yearNumberColumnIndex = cursor.getColumnIndexOrThrow(YearEntry.COLUMN_YEAR_NUMBER);
+//                int monthsNumberColumnIndex = cursor.getColumnIndexOrThrow(YearEntry.COLUMN_MONTHS_NUMBER);
+                int yearDescriptionColumnIndex = cursor.getColumnIndexOrThrow(YearEntry.COLUMN_YEAR_DESCRIPTION);
+
+                String yearName = cursor.getString(yearNameColumnIndex);
+                int yearNumber = cursor.getInt(yearNumberColumnIndex);
+//                int monthsNumber = cursor.getInt(monthsNumberColumnIndex);
+                String yearDescription = cursor.getString(yearDescriptionColumnIndex);
+
+                cursor.close();
+
+                Dialog dialog = new Dialog(mContext);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_add_year);
+                dialog.getWindow().setLayout(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                TextView titleTextView = dialog.findViewById(R.id.dialog_add_year_title);
+                TextView yearNameTextView = dialog.findViewById(R.id.dialog_add_year_name);
+                TextView yearNumberTextView = dialog.findViewById(R.id.dialog_add_year_number);
+//                TextView monthsNumberTextView = dialog.findViewById(R.id.dialog_add_year_days);
+                TextView yearDescriptionTextView = dialog.findViewById(R.id.dialog_add_year_description);
+                TextView editYearButton = dialog.findViewById(R.id.dialog_add_year_add_year_button);
+
+
+                titleTextView.setText(R.string.edit_year);
+                yearNameTextView.setText(yearName);
+                yearNumberTextView.setText(String.valueOf(yearNumber));
+//                monthsNumberTextView.setText(String.valueOf(monthsNumber));
+                yearDescriptionTextView.setText(yearDescription);
+                editYearButton.setText(R.string.edit_button);
+
+
+                editYearButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String yearName = yearNameTextView.getText().toString().trim();
+                        String yearNumberString = yearNumberTextView.getText().toString().trim();
+                        String yearDescription = yearDescriptionTextView.getText().toString().trim();
+
+                        if (yearNumberString.isEmpty()) {
+                            Toast.makeText(mContext, "ادخل رقم هذه السنة اولا", Toast.LENGTH_SHORT).show();
+                        } else {
+                            int yearNumber = Integer.parseInt(yearNumberString);
+                            updateInYearDatabase(yearName, yearNumber, yearDescription, yearUri);
+                            dialog.dismiss();
+                        }
+
+
+                    }
+                });
+
+                dialog.show();
+
+                return true;
+            }
+        });
+
+
+
+    }
+
+
+
+
+    private void updateInYearDatabase(String yearName, int yearNumber, String yearDescription, Uri yearUri) {
+
+        if (yearName.isEmpty()) {
+            yearName = getString(R.string.placeholder_for_year_name);
+        }
+
+        // initialize and setup the ContentValues to contain the data that will be insert inside the database.
+        ContentValues values = new ContentValues();
+        values.put(YearEntry.COLUMN_YEAR_NAME, yearName);
+        values.put(YearEntry.COLUMN_YEAR_NUMBER, yearNumber);
+        values.put(YearEntry.COLUMN_YEAR_DESCRIPTION, yearDescription);
+
+
+        updateYear(values, yearUri);
+
+
+    }
+
+    private void updateYear(ContentValues values, Uri yearUri) {
+
+        // update the semester and get number of the rows that updated.
+        int rows = mContext.getContentResolver().update(yearUri, values, null, null);
+
+        // check if the semester updated successfully or failed.
+        if (rows == 0) {
+            // show a toast message to the user says that "Error with updating semester".
+            Toast.makeText(mContext, R.string.update_year_inside_database_failed, Toast.LENGTH_SHORT).show();
+        } else {
+            // show a toast message to the user says that "Semester updated".
+            Toast.makeText(mContext, R.string.update_year_inside_database_successful, Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -251,8 +362,6 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
     private ArrayList<TodoObject> getFakeTodoObjects() {
 
         ArrayList<TodoObject> todoObjectsArrayList = new ArrayList<>();
-
-
 
         for (int i = 0 ; i < 25 ; i++) {
 
@@ -338,7 +447,7 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
             // for semester loader.
             case YEAR_LOADER:
 
-                mYearCursorAdapter.swapCursor(cursor);
+                mYearsCursorAdapter.swapCursor(cursor);
                 break;
 
 
@@ -373,7 +482,7 @@ public class YearsFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
 
-        mYearCursorAdapter.swapCursor(null);
+        mYearsCursorAdapter.swapCursor(null);
 
 //        mCumulativeCursorAdapter.swapCursor(null);
 

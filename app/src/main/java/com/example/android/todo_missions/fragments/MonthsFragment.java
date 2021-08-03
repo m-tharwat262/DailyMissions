@@ -276,8 +276,127 @@ public class MonthsFragment extends Fragment implements LoaderManager.LoaderCall
         });
 
 
+
+
+        mMonthListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                Uri monthUri = new ContentUris().withAppendedId(MonthsEntry.CONTENT_URI, id);
+
+
+                Cursor cursor = mContext.getContentResolver().query(monthUri, null, null, null, null);
+                cursor.moveToNext();
+                int monthNameColumnIndex = cursor.getColumnIndexOrThrow(MonthsEntry.COLUMN_MONTH_NAME);
+                int monthNumberColumnIndex = cursor.getColumnIndexOrThrow(MonthsEntry.COLUMN_MONTH_NUMBER);
+                int daysNumberColumnIndex = cursor.getColumnIndexOrThrow(MonthsEntry.COLUMN_DAYS_NUMBER);
+                int monthDescriptionColumnIndex = cursor.getColumnIndexOrThrow(MonthsEntry.COLUMN_MONTH_DESCRIPTION);
+
+                String monthName = cursor.getString(monthNameColumnIndex);
+                int monthNumber = cursor.getInt(monthNumberColumnIndex);
+                int daysNumber = cursor.getInt(daysNumberColumnIndex);
+                String monthDescription = cursor.getString(monthDescriptionColumnIndex);
+
+                cursor.close();
+
+                Dialog dialog = new Dialog(mContext);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_add_month);
+                dialog.getWindow().setLayout(ViewPager.LayoutParams.MATCH_PARENT, ViewPager.LayoutParams.WRAP_CONTENT);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+                TextView titleTextView = dialog.findViewById(R.id.dialog_add_month_title);
+                TextView monthNameTextView = dialog.findViewById(R.id.dialog_add_month_name);
+                TextView monthNumberTextView = dialog.findViewById(R.id.dialog_add_month_number);
+                TextView daysNumberTextView = dialog.findViewById(R.id.dialog_add_month_days);
+                TextView monthDescriptionTextView = dialog.findViewById(R.id.dialog_add_month_description);
+                TextView addDayButton = dialog.findViewById(R.id.dialog_add_month_add_month_button);
+
+
+                titleTextView.setText(R.string.edit_month);
+                monthNameTextView.setText(monthName);
+                monthNumberTextView.setText(String.valueOf(monthNumber));
+                daysNumberTextView.setText(String.valueOf(daysNumber));
+                monthDescriptionTextView.setText(monthDescription);
+                addDayButton.setText(R.string.edit_button);
+
+
+                addDayButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        String monthName = monthNameTextView.getText().toString().trim();
+                        String monthDays = daysNumberTextView.getText().toString().trim();
+                        String monthNumber = monthNumberTextView.getText().toString().trim();
+                        String monthDescription = monthDescriptionTextView.getText().toString().trim();
+
+                        if (monthNumber.isEmpty()) {
+                            Toast.makeText(mContext, "ادخل رقم هذه الشهر اولا", Toast.LENGTH_SHORT).show();
+                        } else {
+                            updateInMonthDatabase(monthName, monthNumber, monthDescription, monthDays, monthUri);
+                            dialog.dismiss();
+                        }
+
+
+                    }
+                });
+
+                dialog.show();
+
+                return true;
+            }
+        });
+
+
+
     }
 
+
+    private void updateInMonthDatabase(String monthName, String monthNumber, String monthDescription, String monthDays, Uri monthUri) {
+
+        if (monthName.isEmpty()) {
+            monthName = getString(R.string.placeholder_for_month_name);
+        }
+
+        int monthNumberInteger = Integer.parseInt(monthNumber);
+        int monthDaysInteger;
+        if (!monthDays.isEmpty()) {
+            monthDaysInteger = Integer.parseInt(monthDays);
+        } else {
+            monthDaysInteger = 30;
+            // TODO: get correct days in the month used variable monthNumberInteger
+        }
+
+
+        // initialize and setup the ContentValues to contain the data that will be insert inside the database.
+        ContentValues values = new ContentValues();
+        values.put(MonthsEntry.COLUMN_MONTH_NAME, monthName);
+        values.put(MonthsEntry.COLUMN_MONTH_NUMBER, monthNumberInteger);
+        values.put(MonthsEntry.COLUMN_MONTH_DESCRIPTION, monthDescription);
+        values.put(MonthsEntry.COLUMN_DAYS_NUMBER, monthDaysInteger);
+
+
+        updateMonth(values, monthUri);
+
+
+    }
+
+    private void updateMonth(ContentValues values, Uri monthUri) {
+
+        // update the semester and get number of the rows that updated.
+        int rows = mContext.getContentResolver().update(monthUri, values, null, null);
+
+        // check if the semester updated successfully or failed.
+        if (rows == 0) {
+            // show a toast message to the user says that "Error with updating semester".
+            Toast.makeText(mContext, R.string.update_month_inside_database_failed, Toast.LENGTH_SHORT).show();
+        } else {
+            // show a toast message to the user says that "Semester updated".
+            Toast.makeText(mContext, R.string.update_month_inside_database_successful, Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 
 

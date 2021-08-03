@@ -5,10 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.android.todo_missions.data.TodoThingsContract.YearEntry;
 
-public class YearDbHelper extends SQLiteOpenHelper {
+public class YearsDbHelper extends SQLiteOpenHelper {
 
 
-    public static final String LOG_TAG = YearDbHelper.class.getSimpleName(); // class name.
+    public static final String LOG_TAG = YearsDbHelper.class.getSimpleName(); // class name.
 
     private static final String DATABASE_NAME = "year.db"; // database name.
 
@@ -19,7 +19,7 @@ public class YearDbHelper extends SQLiteOpenHelper {
      * Constructor method for the semester total gpa database to make instance of it and call
      * methods on that instance.
      */
-    public YearDbHelper(Context context) {
+    public YearsDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

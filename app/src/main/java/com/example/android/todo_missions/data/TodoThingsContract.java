@@ -16,7 +16,7 @@ public final class TodoThingsContract {
     public static final String PATH_YEAR = "year";
     public static final String PATH_MONTHS = "months";
     public static final String PATH_DAYS = "days";
-    public static final String PATH_MISSIONS = "missions";
+    public static final String PATH_TASKS = "tasks";
 
 
 
@@ -167,5 +167,30 @@ public final class TodoThingsContract {
     }
 
 
+
+
+
+
+
+    public static final class TasksEntry implements BaseColumns {
+
+
+        public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_TASKS);
+
+        public final static String TABLE_NAME = "tasks"; // table name.
+
+
+        // head names for the table rows.
+        public final static String _ID = BaseColumns._ID;
+        public final static String COLUMN_TASK_NAME = "task_name";
+        public final static String COLUMN_TASK_TIME = "task_number";
+        public final static String COLUMN_ICON_NUMBER= "icon";
+        public final static String COLUMN_BACKGROUND_ICON_NUMBER = "icon_background";
+        public final static String COLUMN_BACKGROUND_SMALL_CIRCLE_NUMBER = "small_circle";
+        public final static String COLUMN_UNIX = "unix";
+
+
+
+    }
 
 }

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="8dp">
+    android:layout_marginTop="16dp" >
 
 
     <RelativeLayout
@@ -125,7 +124,7 @@
                             <TextView
                                 android:id="@+id/fragment_month_completed_tasks"
                                 style="@style/fragment_main_title_for_text_view_bottom"
-                                android:text="655 مهمة"/>
+                                android:text="0 مهمة"/>
 
 
                         </LinearLayout>
@@ -143,7 +142,7 @@
                             <TextView
                                 android:id="@+id/fragment_month_percentage_tasks"
                                 style="@style/fragment_main_title_for_text_view_bottom"
-                                android:text="90%"/>
+                                android:text="100%"/>
 
 
                         </LinearLayout>
@@ -161,7 +160,7 @@
                             <TextView
                                 android:id="@+id/fragment_month_not_completed_tasks"
                                 style="@style/fragment_main_title_for_text_view_bottom"
-                                android:text="130 مهمة"/>
+                                android:text="0 مهمة"/>
 
 
                         </LinearLayout>
@@ -182,9 +181,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
+                android:clipToPadding="false"
                 android:divider="@android:color/transparent"
-                android:dividerHeight="8dp"/>
+                android:dividerHeight="20dp"
+                android:paddingBottom="20dp" />
 
 
 
@@ -193,22 +195,18 @@
 
 
         <LinearLayout
-            android:id="@+id/fragment_month_floating_action_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/ripple_floating_button"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="16dp"
-            android:layout_alignParentBottom="true"
-            android:gravity="center"
-            android:focusable="true"
-            android:clickable="true">
+            style="@style/floating_action_button_container">
+
+            <LinearLayout
+                android:id="@+id/fragment_month_floating_action_button"
+                style="@style/floating_action_button_background">
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/plus_png_icon"/>
+                <ImageView
+                    style="@style/floating_action_button_image_icon"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

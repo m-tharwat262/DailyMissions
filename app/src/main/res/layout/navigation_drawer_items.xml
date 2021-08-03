@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:textSize="20sp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="8dp"
             android:textStyle="bold"
             android:layout_marginTop="16dp"
             android:layout_gravity="center"
@@ -114,8 +114,16 @@
                     style="@style/text_view_for_navigation_item"
                     android:text="@string/navigation_home"/>
 
-                <ImageView
-                    style="@style/image_view_for_navigation_item"/>
+                <LinearLayout
+                    style="@style/settings_item_layout_contain_image_icon"
+                    android:layout_height="32dp"
+                    android:layout_width="32dp">
+
+
+                    <ImageView
+                        style="@style/settings_item_image_icon" />
+
+                </LinearLayout>
 
 
                 <View style="@style/circle_icon_for_navigation_item"/>
@@ -144,8 +152,16 @@
                     style="@style/text_view_for_navigation_item"
                     android:text="@string/navigation_tasks"/>
 
-                <ImageView
-                    style="@style/image_view_for_navigation_item"/>
+                <LinearLayout
+                    style="@style/settings_item_layout_contain_image_icon"
+                    android:layout_height="32dp"
+                    android:layout_width="32dp">
+
+
+                    <ImageView
+                        style="@style/settings_item_image_icon" />
+
+                </LinearLayout>
 
 
                 <View style="@style/circle_icon_for_navigation_item"/>
@@ -174,8 +190,16 @@
                     style="@style/text_view_for_navigation_item"
                     android:text="@string/navigation_done"/>
 
-                <ImageView
-                    style="@style/image_view_for_navigation_item"/>
+                <LinearLayout
+                    style="@style/settings_item_layout_contain_image_icon"
+                    android:layout_height="32dp"
+                    android:layout_width="32dp">
+
+
+                    <ImageView
+                        style="@style/settings_item_image_icon" />
+
+                </LinearLayout>
 
 
                 <View style="@style/circle_icon_for_navigation_item"/>
@@ -204,8 +228,16 @@
                     style="@style/text_view_for_navigation_item"
                     android:text="@string/navigation_tables"/>
 
-                <ImageView
-                    style="@style/image_view_for_navigation_item"/>
+                <LinearLayout
+                    style="@style/settings_item_layout_contain_image_icon"
+                    android:layout_height="32dp"
+                    android:layout_width="32dp">
+
+
+                    <ImageView
+                        style="@style/settings_item_image_icon" />
+
+                </LinearLayout>
 
 
                 <View style="@style/circle_icon_for_navigation_item"/>
@@ -234,9 +266,16 @@
                     style="@style/text_view_for_navigation_item"
                     android:text="@string/navigation_settings"/>
 
-                <ImageView
-                    style="@style/image_view_for_navigation_item"/>
+                <LinearLayout
+                    style="@style/settings_item_layout_contain_image_icon"
+                    android:layout_height="32dp"
+                    android:layout_width="32dp">
 
+
+                    <ImageView
+                        style="@style/settings_item_image_icon" />
+
+                </LinearLayout>
 
                 <View style="@style/circle_icon_for_navigation_item"/>
 
@@ -272,7 +311,8 @@
                     android:id="@+id/navigation_drawer_items_share_item"
                     style="@style/linear_for_navigation_item"
                     android:gravity="center_vertical|end"
-                    android:layout_height="48dp">
+                    android:layout_height="48dp"
+                    >
 
 
 
@@ -283,6 +323,7 @@
                         android:textSize="14sp"
                         android:textStyle="bold"
                         android:maxLines="1"
+                        android:autoSizeTextType="uniform"
                         android:autoSizeMinTextSize="10sp"
                         android:autoSizeMaxTextSize="16sp"
                         android:autoSizeStepGranularity="1sp"
@@ -322,13 +363,13 @@
                         android:textStyle="bold"
                         android:textSize="14sp"
                         android:maxLines="1"
+                        android:autoSizeTextType="uniform"
                         android:autoSizeMinTextSize="10sp"
                         android:autoSizeMaxTextSize="16sp"
                         android:autoSizeStepGranularity="1sp"
                         android:textColor="@android:color/black"
 
                         android:text="@string/navigation_logout"/>
-
 
 
                 </LinearLayout>

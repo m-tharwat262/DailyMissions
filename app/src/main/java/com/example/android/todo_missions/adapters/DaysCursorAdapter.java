@@ -74,7 +74,7 @@ public class DaysCursorAdapter extends CursorAdapter {
         TextView dateDetailsTextView = view.findViewById(R.id.item_fragment_months_number);
         ImageView circleIconImageView = view.findViewById(R.id.item_fragment_circle_icon);
         LinearLayout BigCircleBackgroundLayout = view.findViewById(R.id.item_fragment_circle_layout);
-        TextView smallCircleView = view.findViewById(R.id.item_fragment_test_small_circle);
+        TextView smallCircleView = view.findViewById(R.id.item_fragment_small_circle);
 
 
         // get the column position inside the table in semester database.

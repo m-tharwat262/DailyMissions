@@ -12,7 +12,7 @@
                 android:endColor="@color/gradient_2_color_2"/>
 
             <corners
-                android:radius="16dp" />
+                android:radius="18dp" />
 
 
         </shape>
@@ -24,7 +24,7 @@
             <solid android:color="@color/colorPrimary" />
 
             <corners
-                android:radius="16dp" />
+                android:radius="18dp" />
 
         </shape>
 

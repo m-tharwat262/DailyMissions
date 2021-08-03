@@ -11,7 +11,7 @@
 
     <gradient
         android:startColor="@color/random_2"
-        android:endColor="@color/random_5"
+        android:endColor="@color/random_10"
         android:angle="225"/>
 
 

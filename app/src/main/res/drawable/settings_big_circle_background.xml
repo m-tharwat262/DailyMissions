@@ -7,7 +7,7 @@
         android:height="25dp"/>
 
     <gradient
-        android:startColor="@color/gradient_2_color_2"
+        android:startColor="@color/navigation_circle_done_2"
         android:endColor="@color/gradient_2_color_1"
         android:angle="45"/>
 

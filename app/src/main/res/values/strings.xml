@@ -14,6 +14,7 @@
     <string name="navigation_logout">تسجيل الخروج</string>
     <string name="navigation_share">مشاركة التطبيق</string>
     <string name="navigation_edit_profile">تعديل الملف الشخصي</string>
+    <string name="click_back_again_to_exit">اضغط مره آخري للخروج</string>
 
 
     <!-- main fragments -->
@@ -48,6 +49,12 @@
     <string name="insert_year_inside_database_successful">تم حفظ السنة بنجاح</string>
     <string name="insert_year_inside_database_failed">حدث خطأ اثناء حفظ السنة</string>
 
+    <string name="edit_year">تعديل السنة</string>
+
+    <string name="update_year_inside_database_successful">تم تعديل السنة بنجاح</string>
+    <string name="update_year_inside_database_failed">حدث خطأ اثناء تعديل السنة</string>
+
+
                 <!-- for the add month dialog -->
     <string name="add_new_month">إنشاء شهر جديد</string>
     <string name="hint_month_name">اسم الشهر الجديد</string>
@@ -62,6 +69,12 @@
     <string name="insert_month_inside_database_failed">حدث خطأ اثناء حفظ الشهر</string>
 
 
+    <string name="edit_month">تعديل الشهر</string>
+
+    <string name="update_month_inside_database_successful">تم تعديل الشهر بنجاح</string>
+    <string name="update_month_inside_database_failed">حدث خطأ اثناء تعديل الشهر</string>
+
+
     <!-- for the add day dialog -->
     <string name="add_new_day">إنشاء يوم جديد</string>
     <string name="hint_day_name">اسم اليوم الجديد</string>
@@ -73,6 +86,11 @@
     <string name="insert_day_inside_database_successful">تم حفظ اليوم بنجاح</string>
     <string name="insert_day_inside_database_failed">حدث خطأ اثناء حفظ اليوم</string>
 
+    <string name="edit_day">تعديل اليوم</string>
+    <string name="edit_button">تعديل</string>
+
+    <string name="update_day_inside_database_successful">تم تعديل اليوم بنجاح</string>
+    <string name="update_day_inside_database_failed">حدث خطأ اثناء تعديل اليوم</string>
 
     /////////////////// year list view and items //////////
     <string name="number_of_months">عدد الشهور %1$d</string>
@@ -110,6 +128,55 @@
     <string name="notification_fragment_title">الإشعارات</string>
     <string name="notification_tasks">إشعارات المهام</string>
     <string name="notification_more_items">المزيد من الإشعارات</string>
+
+
+
+    ///////////////////////////////  settings /////////////////////
+    <string name="settings_edit_profile">إعدادات الملف الشخصي</string>
+    <string name="settings_edit_profile_details">تعديل الملف الشخصي وبيانات الحساب</string>
+
+    <string name="settings_app_themes">مظهر التطبيق</string>
+    <string name="settings_app_themes_details">تغيير مظهر التطبيق وتغيير الايموجي</string>
+
+    <string name="settings_about_app">النسخ الاحتياطي والاستعادة</string>
+    <string name="settings_about_app_details">إنشاء نسخة احتياطية أو استعادتها</string>
+
+    <string name="settings_backup">الإشعارات والإصوات</string>
+    <string name="settings_backup_details">تفعيل الإشعارات وتغيير نغمة الإشعارات</string>
+
+    <string name="settings_notification">التحديثات</string>
+    <string name="settings_notification_details">البحث عن التحديثات ورؤيه التغييرات</string>
+
+    <string name="settings_update">عن التطبيق</string>
+    <string name="settings_update_details">نبذه عن التطبيق وسياسه الخصوصيه</string>
+
+    <string name="settings_app_version">الإصدار</string>
+    <string name="settings_app_version_details">V%1$s</string>
+
+
+
+
+    /////////////////////////// Tasks //////////////////////////
+    <string name="tasks_fragment_title">المهام اليومية</string>
+    <string name="tasks_title">إضافه المهام وتعديلها</string>
+
+
+                 <!-- for the add task dialog -->
+    <string name="add_new_task">إنشاء مهمة جديدة</string>
+    <string name="hint_task_name">اسم المهمة الجديدة</string>
+    <string name="hint_task_time">أختيار الوقت للمهمة</string>
+    <string name="create_task_button">إنشاء المهمة</string>
+    <string name="time_button">الوقت</string>
+    <string name="placeholder_for_task_name">لم يحدد العنوان بعد لهذا اليوم</string>
+
+
+    <string name="insert_task_inside_database_successful">تم حفظ المهمة بنجاح</string>
+    <string name="insert_task_inside_database_failed">حدث خطأ اثناء حفظ المهمة</string>
+
+    <string name="edit_task">تعديل المهمة</string>
+
+    <string name="update_task_inside_database_successful">تم تعديل المهمة بنجاح</string>
+    <string name="update_task_inside_database_failed">حدث خطأ اثناء تعديل المهمة</string>
 
 
 </resources>
