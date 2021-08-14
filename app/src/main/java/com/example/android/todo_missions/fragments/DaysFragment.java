@@ -30,12 +30,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.android.todo_missions.R;
 import com.example.android.todo_missions.RandomIcons;
 import com.example.android.todo_missions.adapters.DaysCursorAdapter;
-import com.example.android.todo_missions.adapters.MonthsCursorAdapter;
-
-import com.example.android.todo_missions.data.TodoThingsContract;
-import com.example.android.todo_missions.data.TodoThingsContract.YearEntry;
-import com.example.android.todo_missions.data.TodoThingsContract.MonthsEntry;
 import com.example.android.todo_missions.data.TodoThingsContract.DaysEntry;
+import com.example.android.todo_missions.data.TodoThingsContract.MonthsEntry;
+import com.example.android.todo_missions.data.TodoThingsContract.YearEntry;
 
 
 public class DaysFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
@@ -205,16 +202,16 @@ public class DaysFragment extends Fragment implements LoaderManager.LoaderCallba
 
         // initialize and setup the ContentValues to contain the data that will be insert inside the database.
         ContentValues values = new ContentValues();
-        values.put(TodoThingsContract.DaysEntry.COLUMN_YEAR_ID, mYearIdInDatabase);
-        values.put(TodoThingsContract.DaysEntry.COLUMN_MONTH_ID, mMonthIdInDatabase);
+        values.put(DaysEntry.COLUMN_YEAR_ID, mYearIdInDatabase);
+        values.put(DaysEntry.COLUMN_MONTH_ID, mMonthIdInDatabase);
         values.put(DaysEntry.COLUMN_DAY_NAME, dayName);
         values.put(DaysEntry.COLUMN_DAY_NUMBER, dayNumber);
 //        values.put(DaysEntry.COLUMN_DAY_DESCRIPTION, dayDescription);
 //        values.put(DaysEntry.COLUMN_DAYS_NUMBER, dayMissionsInteger);
-        values.put(TodoThingsContract.DaysEntry.COLUMN_ICON_NUMBER, iconResourceId);
-        values.put(TodoThingsContract.DaysEntry.COLUMN_BACKGROUND_ICON_NUMBER, iconBackgroundResourceId);
+        values.put(DaysEntry.COLUMN_ICON_NUMBER, iconResourceId);
+        values.put(DaysEntry.COLUMN_BACKGROUND_ICON_NUMBER, iconBackgroundResourceId);
         values.put(DaysEntry.COLUMN_BACKGROUND_SMALL_CIRCLE_NUMBER, smallBackgroundResourceId);
-        values.put(TodoThingsContract.DaysEntry.COLUMN_UNIX, time);
+        values.put(DaysEntry.COLUMN_UNIX, time);
 
 
         insertDay(values);
@@ -225,7 +222,7 @@ public class DaysFragment extends Fragment implements LoaderManager.LoaderCallba
     private void insertDay(ContentValues values) {
 
         // insert the new semester to the database and get the uri for that semester.
-        Uri uri = mContext.getContentResolver().insert(TodoThingsContract.DaysEntry.CONTENT_URI, values);
+        Uri uri = mContext.getContentResolver().insert(DaysEntry.CONTENT_URI, values);
 
         // check if the semester inserted successfully or failed.
         if (uri == null) {

@@ -70,35 +70,52 @@
             android:layout_marginTop="16dp">
 
 
-            <LinearLayout
-                android:id="@+id/fragment_tasks_second_title"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fragment_tasks_second_title_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_alignParentTop="true"
+                app:cardCornerRadius="24dp"
+                app:cardPreventCornerOverlap="false"
+                app:cardElevation="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp">
 
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/fragment_tasks_second_title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/white"
                     android:gravity="center"
-                    android:text="@string/tasks_title"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
 
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center"
+                        android:text="@string/tasks_title"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
 
 
             <ListView
                 android:id="@+id/fragment_tasks_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/fragment_tasks_second_title"
+                android:layout_below="@id/fragment_tasks_second_title_layout"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"

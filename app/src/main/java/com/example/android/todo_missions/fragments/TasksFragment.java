@@ -1,7 +1,6 @@
 package com.example.android.todo_missions.fragments;
 
 import android.app.Dialog;
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,7 +19,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
@@ -30,7 +27,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.android.todo_missions.R;
 import com.example.android.todo_missions.RandomIcons;
 import com.example.android.todo_missions.adapters.TasksCursorAdapter;
-import com.example.android.todo_missions.adapters.YearsCursorAdapter;
 import com.example.android.todo_missions.data.TodoThingsContract.TasksEntry;
 
 
@@ -187,10 +183,11 @@ public class TasksFragment extends Fragment implements LoaderManager.LoaderCallb
 
     private String getTimeFormatted(int mTimePickerHours, int mTimePickerMinutes) {
 
-        String finalHours = "";
-        String finalMinutes = "";
-        String formatTime = "";
+        String finalHours;
+        String finalMinutes;
+        String formatTime;
 
+        Log.i(LOG_TAG, "the hours and minutes from the timePicker is : " + mTimePickerHours + "   " + mTimePickerMinutes);
 
         if (mTimePickerHours == 0) {
 
@@ -219,7 +216,7 @@ public class TasksFragment extends Fragment implements LoaderManager.LoaderCallb
             finalMinutes = "" + mTimePickerMinutes;
         }
 
-        String finalFormattedString = finalHours + ":" + finalMinutes + " " + formatTime ;
+        String finalFormattedString = finalHours + ":" + finalMinutes + " " + formatTime +" " ;
 
         return finalFormattedString;
 
@@ -227,7 +224,7 @@ public class TasksFragment extends Fragment implements LoaderManager.LoaderCallb
 
     private void insertInTaskDatabase(String taskName, String taskTime) {
 
-        Log.i(LOG_TAG, "the method that responsable to insert the year to data base triggered");
+        Log.i(LOG_TAG, "the method that responsible to insert the year to data base triggered");
 
         if (taskName.isEmpty()) {
             taskName = getString(R.string.placeholder_for_year_name);

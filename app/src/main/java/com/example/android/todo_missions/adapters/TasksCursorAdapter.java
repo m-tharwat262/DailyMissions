@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,6 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.android.todo_missions.R;
-import com.example.android.todo_missions.activities.MainActivity;
 import com.example.android.todo_missions.data.TodoThingsContract.TasksEntry;
 
 import java.text.SimpleDateFormat;
@@ -125,9 +125,6 @@ public class TasksCursorAdapter extends CursorAdapter {
             @Override
             public void onClick(View v) {
 
-                int position = cursor.getPosition();
-
-
                 Integer pos = (Integer) v.getTag();
 
                 cursor.moveToPosition(pos);
@@ -147,13 +144,13 @@ public class TasksCursorAdapter extends CursorAdapter {
                 TextView taskNameTextView = dialog.findViewById(R.id.dialog_add_task_name);
                 TextView taskTimeValueTextView = dialog.findViewById(R.id.dialog_add_task_time_value);
                 TextView timePickerButton = dialog.findViewById(R.id.dialog_add_task_time_picker);
-                TextView addTaskButton = dialog.findViewById(R.id.dialog_add_task_add_task_button);
+                TextView editTaskButton = dialog.findViewById(R.id.dialog_add_task_add_task_button);
 
 
                 taskTitleTextView.setText(R.string.edit_task);
                 taskNameTextView.setText(taskName);
                 taskTimeValueTextView.setText(taskTime);
-                addTaskButton.setText(R.string.edit_button);
+                editTaskButton.setText(R.string.edit_button);
 
 
                 timePickerButton.setOnClickListener(new View.OnClickListener() {
@@ -185,7 +182,11 @@ public class TasksCursorAdapter extends CursorAdapter {
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                     int mTimePickerMinutes = timePickerView.getMinute();
                                     int mTimePickerHours = timePickerView.getHour();
-                                    taskTimeValueTextView.setText(mTimePickerHours + ":" + mTimePickerMinutes);
+
+                                    String formattedTime = getTimeFormatted(mTimePickerHours, mTimePickerMinutes);
+
+                                    taskTimeValueTextView.setText(formattedTime);
+
                                 }
 
                                 dialog.dismiss();
@@ -199,7 +200,7 @@ public class TasksCursorAdapter extends CursorAdapter {
                 });
 
 
-                addTaskButton.setOnClickListener(new View.OnClickListener() {
+                editTaskButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
@@ -316,7 +317,46 @@ public class TasksCursorAdapter extends CursorAdapter {
     }
 
 
+    private String getTimeFormatted(int mTimePickerHours, int mTimePickerMinutes) {
 
+        String finalHours;
+        String finalMinutes;
+        String formatTime;
+
+        Log.i(LOG_TAG, "the hours and minutes from the timePicker is : " + mTimePickerHours + "   " + mTimePickerMinutes);
+
+        if (mTimePickerHours == 0) {
+
+            mTimePickerHours += 12;
+            formatTime = "ص";
+
+        } else if (mTimePickerHours == 12) {
+            formatTime = "م";
+        } else if (mTimePickerHours > 12) {
+            mTimePickerHours -= 12;
+            formatTime = "م";
+        } else {
+            formatTime = "ص";
+        }
+
+
+        if (mTimePickerHours < 10) {
+            finalHours = "0" + mTimePickerHours;
+        } else {
+            finalHours = "" + mTimePickerHours;
+        }
+
+        if (mTimePickerMinutes < 10) {
+            finalMinutes = "0" + mTimePickerMinutes;
+        } else {
+            finalMinutes = "" + mTimePickerMinutes;
+        }
+
+        String finalFormattedString = finalHours + ":" + finalMinutes + " " + formatTime +" " ;
+
+        return finalFormattedString;
+
+    }
 
 
 

@@ -179,4 +179,15 @@
     <string name="update_task_inside_database_failed">حدث خطأ اثناء تعديل المهمة</string>
 
 
+
+    //////////////////////// splash screen /////////////////////////
+    <string name="splash_screen_app_title">تطبيق يوميات ومذكره</string>
+    <string name="by_rayyan_sharif">By Rayyan Sharif</string>
+
+
+
+    //////////////////////////// tables ///////////////////////////////
+    <string name="tables_second_title">الشهور المضافة (%1$d)</string>
+
+
 </resources>

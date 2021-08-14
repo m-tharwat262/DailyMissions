@@ -12,10 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
@@ -29,7 +26,7 @@ import com.example.android.todo_missions.R;
 import com.example.android.todo_missions.fragments.DoneFragment;
 import com.example.android.todo_missions.fragments.NotificationFragment;
 import com.example.android.todo_missions.fragments.SettingsFragment;
-import com.example.android.todo_missions.fragments.TablesFragment;
+import com.example.android.todo_missions.fragments.tables.TablesFragment;
 import com.example.android.todo_missions.fragments.TasksFragment;
 import com.example.android.todo_missions.fragments.YearsFragment;
 import com.example.android.todo_missions.models.UserObject;
@@ -42,8 +39,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
